@@ -4,12 +4,12 @@ import './index.css'
 import LoginPage from './routes/LoginPage.jsx'
 import RegisterPage from './routes/RegisterPage.jsx'
 import Write from './routes/Write.jsx'
-import SinglePage from './routes/SinglePage.jsx'
 import PostListPage from './routes/PostListPage.jsx'
 import HomePage from './routes/HomePage.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout.jsx'
 import { ClerkProvider } from '@clerk/clerk-react'
+import SinglePostPage from './routes/SinglePostPage.jsx'
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/:slug",
-        element: <SinglePage />,
+        element: <SinglePostPage />,
       },
       {
         path: "/write",

@@ -14,8 +14,7 @@ const MainCategories = () => {
     <Link 
     to='/posts?cat=web-design'
     className="hover:bg-blue-50 rounded-full px-4 py-2">
-        Web DesignMainCategories
-MainCategories
+        Web Design
     </Link>
 
     <Link 
