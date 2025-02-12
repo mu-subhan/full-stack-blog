@@ -28,7 +28,19 @@ console.log(req.auth);
     return res.status(404).json("user not found");
    }
 
-    const newPost = await Post({user:user._id,...req.body});
+let slug = req.body.title.replace(/ /g, "-").toLowerCase();
+
+let existingPost = await Post.findOne({slug});
+
+let counter = 2;
+
+while (existingPost){
+    slug = `${slug}-${counter}`;
+    existingPost = await Post.findOne({slug});
+    counter++;
+}
+
+    const newPost = await Post({user:user._id,slug,...req.body});
 
     const post = await newPost.save();
     res.status(200).send(post)};
