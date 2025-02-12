@@ -5,9 +5,11 @@ import postRouter from "./routes/post.route.js"
 import userRouter from "./routes/user.route.js"
 import commentRouter  from "./routes/comment.route.js"
 import webHookRouter from "./routes/webhook.route.js"
+import {clerkMiddleware, requireAuth} from "@clerk/express"
 dotenv.config();
 
 const app = express()
+app.use(clerkMiddleware())
 app.use("/webhooks",webHookRouter)
 app.use (express.json())
 
@@ -15,6 +17,28 @@ app.use (express.json())
 // app.get("/test",(req,res)=>{
 //     res.status(200).send("it is working")
 // })
+
+
+// app.get("/auth-state",(req,res)=>{
+//     const authState = req.auth;
+//     res.json(authState);
+// })
+
+// app.get("/protect",(req,res)=>{
+//     const {userId} = req.auth;
+//     if(!userId){
+//         return res.status(401).json("not authenticated")
+//     }
+//      res.status(200).json("content")
+// })
+
+app.get("/protect2", requireAuth(), (req,res)=>{
+    
+ res.status(200).json("content")
+})
+
+
+
 
 app.use("/posts",postRouter)
 app.use("/users",userRouter);
