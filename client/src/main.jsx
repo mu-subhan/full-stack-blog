@@ -10,6 +10,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout'
 import { ClerkProvider } from '@clerk/clerk-react'
 import SinglePostPage from './routes/SinglePostPage'
+import { ToastContainer } from 'react-toastify'
 import {
   QueryClient,
   QueryClientProvider,
@@ -61,7 +62,7 @@ createRoot(document.getElementById('root')).render(
   <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
     <QueryClientProvider client={queryClient}>
    <RouterProvider router={router}/>
-
+<ToastContainer position="bottom-right"/>
     </QueryClientProvider>
    </ClerkProvider>
   </StrictMode>,
