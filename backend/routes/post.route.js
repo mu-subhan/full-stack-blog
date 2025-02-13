@@ -1,9 +1,11 @@
 import express from "express"
-import { createPost, getPost, getPosts,deletePost } from "../controllers/post.controller.js";
+import { createPost, getPost, getPosts,deletePost,uploadAuth } from "../controllers/post.controller.js";
 import { requireAuth } from "@clerk/express";
 
 const router = express.Router();
 
+
+router.get("/upload-auth",uploadAuth)
 router.get("/",getPosts)
 router.get("/:slug",getPost)
 router.post("/",requireAuth(),createPost)

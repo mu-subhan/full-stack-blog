@@ -1,5 +1,9 @@
+import ImageKit from "imagekit";
 import Post from "../models/post.model.js";
 import User from "../models/user.model.js"
+import dotenv from 'dotenv';
+dotenv.config();
+
 export const getPosts = async(req,res) =>{
     const posts = await Post.find()
     res.status(200).send(posts)
@@ -60,4 +64,15 @@ export const deletePost = async (req,res)=>{
         return res.status(403).json("you are only delted your post")
     }
     res.status(200).send("post has been deleted")
+}
+
+const imagekit = new ImageKit({
+    urlEndpoint: process.env.IK_URL_ENDPOINT,
+  publicKey: process.env.Ik_PUBLIC_KEY,
+  privateKey: process.env.Ik_PRIVATE_KEY,
+})
+
+export const uploadAuth = async (req,res)=>{
+    const result = imagekit.getAuthenticationParameters();
+    res.send(result);
 }
