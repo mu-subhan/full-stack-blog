@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 const authenticator = async () => {
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_IK_ENDPOINT_URL}/posts/upload-auth`
+      `${import.meta.env.VITE_API_URL}/posts/upload-auth`
     );
 
     if (!response.ok) {
@@ -27,7 +27,7 @@ const Upload = ({ children, type, setProgress, setData }) => {
   const ref = useRef(null);
 
   const onError = (err) => {
-    // console.log(err);
+    console.log(err);
     toast.error("Image upload failed!");
   };
   const onSuccess = (res) => {
@@ -42,7 +42,7 @@ const Upload = ({ children, type, setProgress, setData }) => {
   return (
     <IKContext
       publicKey={import.meta.env.VITE_IK_PUBLIC_KEY}
-      urlEndpoint={import.meta.env.VITE_IK_URL_ENDPOINT}
+      urlEndpoint={import.meta.env.VITE_IK_ENDPOINT_URL}
       authenticator={authenticator}
     >
       <IKUpload

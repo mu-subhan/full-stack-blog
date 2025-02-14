@@ -37,7 +37,7 @@ const Write = () => {
   const mutation = useMutation({
     mutationFn: async (newPost) => {
       const token = await getToken();
-      return axios.post(`${import.meta.env.VITE_API_URL}/posts`, newPost, {
+      return axios.post(`${import.meta.env.VITE_API_URL}/posts`,newPost, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
