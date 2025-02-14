@@ -15,16 +15,13 @@ const hasMore = (page * limit) <totalPosts;
 
 res.status(200).json({posts,hasMore});
 
-
 };
-
 
 
 export const getPost = async(req,res) =>{
-    const post = await Post.findOne({slug: req.params.slug})
+    const post = await Post.findOne({slug: req.params.slug}).populate("user","username img")
     res.status(200).send(post)
 };
-
 
 
 export const createPost = async(req,res) =>{
