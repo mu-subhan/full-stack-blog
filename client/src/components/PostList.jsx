@@ -7,7 +7,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 const fetchPosts = async (pageParam, searchParams) => {
   const searchParamsObj = Object.fromEntries([...searchParams]);
 
-  console.log(searchParamsObj);
+  // console.log(searchParamsObj);
 
   const res = await axios.get(`${import.meta.env.VITE_API_URL}/posts`, {
     params: { page: pageParam, limit: 3, ...searchParamsObj },

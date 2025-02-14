@@ -13,7 +13,7 @@ const PostListItem = ({post}) => {
 
       {/* detail  */}
       <div className="flex flex-col gap-4 xl:w-2/3">
-        <Link to="/test" className="text-4xl font-semibold">
+        <Link to={`/${post.slug}`} className="text-4xl font-semibold">
         {post.title}
         {/* console.log(post); */}
         
