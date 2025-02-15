@@ -24,7 +24,7 @@ const SinglePostPage = () => {
   if (isPending) return "loading...";
   if (error) return "Something went wrong!" + error.message;
   if (!data) return "Post not found!";
-
+  console.log("Post Data:", data);
   return (
      <div className="flex flex-col gap-8">
       {/* detail */}
@@ -35,7 +35,7 @@ const SinglePostPage = () => {
           </h1>
           <div className="flex items-center gap-2 text-gray-400 text-sm">
             <span>Written by</span>
-            <Link className="text-blue-800">{data.user.username}</Link>
+            <Link className="text-blue-800">{data.user}</Link>
             <span>on</span>
             <Link className="text-blue-800">{data.category}</Link>
             <span>{format(data.createdAt)}</span>
@@ -150,7 +150,7 @@ const SinglePostPage = () => {
                   h="48"
                 />
               )}
-              <Link className="text-blue-800">{data.user.username}</Link>
+              <Link className="text-blue-800">{data.user}</Link>
             </div>
             <p className="text-sm text-gray-500">
               Lorem ipsum dolor sit amet consectetur
@@ -194,3 +194,4 @@ const SinglePostPage = () => {
 };
 
 export default SinglePostPage;
+
