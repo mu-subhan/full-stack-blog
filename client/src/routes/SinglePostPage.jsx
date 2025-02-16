@@ -25,7 +25,7 @@ const SinglePostPage = () => {
   if (error) return "Something went wrong!" + error.message;
   if (!data) return "Post not found!";
 
-  console.log("Post Data:", data);
+  // console.log("Post Data:", data);
   
   return (
      <div className="flex flex-col gap-8">
