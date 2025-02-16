@@ -7,7 +7,6 @@ import { toast } from "react-toastify";
 
 
 
-
 const Comment = ({ comment, postId }) => {
   const { user } = useUser();
   const { getToken } = useAuth();

@@ -24,7 +24,9 @@ const SinglePostPage = () => {
   if (isPending) return "loading...";
   if (error) return "Something went wrong!" + error.message;
   if (!data) return "Post not found!";
+
   console.log("Post Data:", data);
+  
   return (
      <div className="flex flex-col gap-8">
       {/* detail */}
@@ -35,16 +37,16 @@ const SinglePostPage = () => {
           </h1>
           <div className="flex items-center gap-2 text-gray-400 text-sm">
             <span>Written by</span>
-            <Link className="text-blue-800">{data.user}</Link>
+            <Link className="text-blue-800">{data.user.username}</Link>
             <span>on</span>
             <Link className="text-blue-800">{data.category}</Link>
             <span>{format(data.createdAt)}</span>
           </div>
           <p className="text-gray-500 font-medium">{data.desc}</p>
         </div>
-        {data.img && (
+        {data.user.img && (
           <div className="hidden lg:block w-2/5">
-            <Image src={data.img} w="600" className="rounded-2xl" />
+            <Image src={data.user.img} w="600" className="rounded-2xl" />
           </div>
         )}
       </div>
@@ -148,9 +150,10 @@ const SinglePostPage = () => {
                   className="w-12 h-12 rounded-full object-cover"
                   w="48"
                   h="48"
+                  alt="user image"
                 />
-              )}
-              <Link className="text-blue-800">{data.user}</Link>
+               )} 
+              <Link className="text-blue-800">{data.user.username}</Link>
             </div>
             <p className="text-sm text-gray-500">
               Lorem ipsum dolor sit amet consectetur

@@ -20,7 +20,7 @@ const PostListItem = ({post}) => {
         </Link>
         <div className="flex item-center gap-2 text-gray-400 text-sm">
             <span>Written by</span>
-            <Link className="text-blue-800">user will be upload</Link>
+            <Link className="text-blue-800">{post.user.username}</Link>
             <span>on</span>
             <Link className="text-blue-800">{post.category}</Link>
             <span>{format(post.createdAt)}</span>
