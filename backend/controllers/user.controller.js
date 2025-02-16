@@ -1,4 +1,6 @@
 import User from "../models/user.model.js"
+
+
 export const getUserSavedPost = async (req,res) =>{
 const clerkUserId = req.auth.userId;
 
