@@ -9,10 +9,17 @@ const Navbar = () => {
 
     const {getToken} = useAuth();
 
-    useEffect(()=>{
-      getToken().then((token)=>console.log(token)
-      )
-    },[])
+    // useEffect(()=>{
+    //   getToken().then((token)=>console.log(token)
+    //   )
+    // },[])
+
+    useEffect(() => {
+      getToken().then((token) => {
+        
+      });
+    }, []);
+    
   return (
     <div className='w-full h-16 md:h-20 flex items-center justify-between'>
 
