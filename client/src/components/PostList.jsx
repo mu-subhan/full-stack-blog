@@ -1,5 +1,5 @@
 import PostListItem from "./PostListItem"
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query"
+import { useInfiniteQuery } from "@tanstack/react-query"
 import axios from "axios";
 import { useSearchParams } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -24,8 +24,7 @@ const PostList = () => {
     fetchNextPage,
     hasNextPage,
     isFetching,
-    isFetchingNextPage,
-    status,
+   
   } = useInfiniteQuery({
     queryKey: ["posts", searchParams.toString()],
     queryFn: ({ pageParam = 1 }) => fetchPosts(pageParam, searchParams),
